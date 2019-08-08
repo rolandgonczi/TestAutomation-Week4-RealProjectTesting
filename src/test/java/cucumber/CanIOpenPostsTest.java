@@ -19,8 +19,7 @@ public class CanIOpenPostsTest {
 
     @Given("^the main page loaded")
     public void verifyMainPage() {
-        WebElement title = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[3]/h1/a"));
-        utility.waitForElementClickable(title);
+        utility.waitForElementClickable(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[3]/h1/a")));
     }
 
     @When("^I click the title of the post")

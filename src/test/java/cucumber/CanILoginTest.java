@@ -1,5 +1,6 @@
 package cucumber;
 
+import com.codecool.projectTestingBDD.Utility.Util;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -14,6 +15,7 @@ import static org.junit.Assert.*;
 public class CanILoginTest {
 
     private final WebDriver driver = new ChromeDriver();
+    private static Util utility = new Util(new ChromeDriver());
 
     @Given("^eeeasy in running on localhost:3000$")
     public void eeeasyRunning() {
@@ -22,18 +24,18 @@ public class CanILoginTest {
 
     @When("^I click the Sign in button$")
     public void clickSignInButton() {
-        WebElement signInButton = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/button"));
-        signInButton.click();
+        utility.waitForElementClickable(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/button")));
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/button")).click();
     }
 
-    @And("^I enter \"<username>\"$")
+    @And("I enter a {string}")
     public void enterUsername(String username) {
         WebElement usernameInputField = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/input[1]"));
         usernameInputField.click();
         usernameInputField.sendKeys(username);
     }
 
-    @And("^I enter \"<password>\"$")
+    @And("I enter {string}")
     public void enterPassword(String password) {
         WebElement passwordInputField = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/input[2]"));
         passwordInputField.click();
