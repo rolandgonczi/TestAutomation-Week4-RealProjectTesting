@@ -4,6 +4,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.api.java.After;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,5 +33,10 @@ public class CanIOpenPostsTest {
     public void confirmNotMainPage() {
         WebElement button = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/button"));
         assertNull(button);
+    }
+
+    @After()
+    public void closeBrowser() {
+        driver.quit();
     }
 }
