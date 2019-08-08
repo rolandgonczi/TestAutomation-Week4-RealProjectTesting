@@ -14,8 +14,8 @@ public class RegisterNewUserTest {
 
     private final WebDriver driver = new ChromeDriver();
 
-    @Given("^eeeasy in running on localhost:3000$")
-    public void eeeasyRunning() {
+    @Given("^eeeasy is running on localhost:3000$")
+    public void eeeasyIsRunning() {
         driver.get("localhost:3000");
     }
 

@@ -25,15 +25,15 @@ public class CanILoginTest {
         signInButton.click();
     }
 
-    @And("^I enter the \"<username>\"$")
-    public void enterTheUsername(String username) {
+    @And("^I enter \"<username>\"$")
+    public void enterUsername(String username) {
         WebElement usernameInputField = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/input[1]"));
         usernameInputField.click();
         usernameInputField.sendKeys(username);
     }
 
-    @And("^I enter the \"<password>\"$")
-    public void enterThePassword(String password) {
+    @And("^I enter \"<password>\"$")
+    public void enterPassword(String password) {
         WebElement passwordInputField = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/input[2]"));
         passwordInputField.click();
         passwordInputField.sendKeys(password);
