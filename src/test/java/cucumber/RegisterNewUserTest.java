@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import static org.junit.Assert.*;
 
 public class RegisterNewUserTest {
 
@@ -45,7 +46,7 @@ public class RegisterNewUserTest {
         passwordInputField.sendKeys("password");
     }
 
-    @And("^I click the Register button$")
+    @And("^I submit my Registration$")
     public void clickRegisterButtonAgain() {
         WebElement registerButton = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/button"));
         registerButton.click();
@@ -53,7 +54,8 @@ public class RegisterNewUserTest {
 
     @Then("^The registration box disappeared$")
     public void checkTheRegistrationBox() {
-        
+        WebElement registerBox = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]"));
+        assertNull(registerBox);
     }
 
 

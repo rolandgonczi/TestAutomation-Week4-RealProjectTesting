@@ -7,5 +7,5 @@ Feature: Register new user
     And I enter the "<username>"
     And I enter the "<email>"
     And I enter the "<password>"
-    And I click the Register button
+    And I submit my Registration
     Then The registration box disappeared
