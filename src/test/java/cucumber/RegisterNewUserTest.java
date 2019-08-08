@@ -34,10 +34,10 @@ public class RegisterNewUserTest {
     }
 
     @And("^I enter the \"<email>\"$")
-    public void enterTheEmail() {
+    public void enterTheEmail(String email) {
         WebElement emailInputField = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/input[2]"));
         emailInputField.click();
-        emailInputField.sendKeys("email@gmail.com");
+        emailInputField.sendKeys(email);
     }
 
     @And("^I enter the \"<password>\"$")
